@@ -1,5 +1,4 @@
-.env
+config/*.env
+docker/*.env
 .idea
 node_modules
-docker
-config

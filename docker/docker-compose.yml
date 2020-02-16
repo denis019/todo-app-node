@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  ### Workspace Utilities ##################################
+  workspace:
+    container_name: workspace
+    build:
+      context: ./workspace
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/var/www
+
+  ### MongoDB ##############################################
+  mongo:
+    container_name: mongo-db
+    build: ./mongo
+    ports:
+      - "${MONGODB_PORT}:27017"
+    volumes:
+      - ${DATA_PATH_HOST}/mongo:/data/db
+      - ${DATA_PATH_HOST}/mongo_config:/data/configdb
