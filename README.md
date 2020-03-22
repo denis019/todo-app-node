@@ -13,3 +13,4 @@
  
  # Built based on:
  - https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
+ - improved with docker
