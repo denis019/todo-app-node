@@ -1,4 +1,4 @@
 config/*.env
-docker/*.env
+docker/dev.env
 .idea
 node_modules

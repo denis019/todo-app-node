@@ -1,21 +1,29 @@
-version: '3'
+version: '3.4'
 
 services:
 
-  ### Workspace Utilities ##################################
-  workspace:
-    container_name: workspace
+  ### Node ##################################
+  node:
+    container_name: todo_app-node
     build:
-      context: ./workspace
+      context: ../
+      dockerfile: docker/node/Dockerfile
+      target: dev
+    ports:
+      - "${NODE_PORT}:3000"
     volumes:
-      - ${APP_CODE_PATH_HOST}:/var/www
+      - ../:/app
+      - node_modules:/app/node_modules
 
   ### MongoDB ##############################################
   mongo:
-    container_name: mongo-db
+    container_name: todo_app-mongo-db
     build: ./mongo
     ports:
       - "${MONGODB_PORT}:27017"
     volumes:
-      - ${DATA_PATH_HOST}/mongo:/data/db
-      - ${DATA_PATH_HOST}/mongo_config:/data/configdb
+      - db:/data/db
+
+volumes:
+  node_modules:
+  db:

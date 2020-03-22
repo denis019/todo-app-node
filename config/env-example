@@ -1,5 +1,5 @@
 PORT=3000
 SEND_GRID_API=''
 EMAIL_FROM=''
-MONGO_URL='mongodb://127.0.0.1:27017/task-manager-api'
+MONGO_URL='mongodb://todo_app-mongo-db:27017/task-manager-api'
 JWT_SECRET='some-secret-key';
